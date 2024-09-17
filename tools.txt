@@ -1,0 +1,44 @@
+Microsoft Visual Studio Professional 2019
+Version 16.11.33
+VisualStudio.16.Release/16.11.33+34407.143
+Microsoft .NET Framework
+Version 4.8.03761
+Installed Version: Professional
+Visual C++ 2019   00435-30053-96696-AA586
+ASP.NET and Web Tools 2019   16.11.116.46506
+ASP.NET Web Frameworks and Tools 2019   16.11.116.46506
+Azure App Service Tools v3.0   16.11.116.46506
+C# Tools   3.11.0-4.22108.84-d9bef045c4362fbcab27ef35daec4e95c8ff47e1
+Common Azure Tools   1.10
+Cookiecutter   16.11.21196.2
+IntelliCode Extension   1.0
+Linux Core Dump Debugging   1.0.9.34301
+Microsoft Continuous Delivery Tools for Visual Studio   0.4
+Microsoft Library Manager   2.1.126+g1ld4cf0d0c.RR
+Install client-side libraries easily to any web project
+Microsoft MI-Based Debugger   1.0
+Microsoft Visual C++ Wizards   1.0
+Microsoft Visual Studio Tools for Containers   1.2
+Microsoft Visual Studio VC Package   1.0
+NuGet Package Manager   5.11.4
+ProjectServicesPackage Extension   1.0
+Python   16.11.21196.2
+Python - Profiling support   16.11.21196.2
+Profiling support for Python projects.
+Razor (ASP.NET Core)   16.1.0.2122504+13c05c96ea6bdb650bd88b0bf6cdddf8cde1725
+SQL Server Data Tools   16.0.62205.05200
+Test Adapter for Boost.Test   1.0
+Test Adapter for Google Test   1.0
+TypeScript Tools   16.0.30526.2002
+Visual Basic Tools   3.11.0-4.22108.84+d9bef045c4362fbcab27ef35daec4e95c8ff47e1
+Visual C++ for Linux Development   1.0.9.34301
+Visual C++ for Linux Development
+Visual F# Tools   16.11.0-beta.21514.6+b6c2c4f53ea3a08fa603ea93d6d2f808a62a21d1
+Microsoft Visual F# Tools
+Visual Studio Code Debug Adapter Host Package   1.0
+Visual Studio Container Tools Extensions   1.0
+Visual Studio Tools for CMake   1.0
+Visual Studio Tools for CMake
+Visual Studio Tools for Containers   1.0
+Extensions:
+Microsoft Visual Studio Installer Projects
