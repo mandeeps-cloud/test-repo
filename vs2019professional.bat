@@ -3,7 +3,7 @@
 :: This script installs Visual Studio 2019 Professional version 16.11.40 with specific workloads
 
 echo Downloading Visual Studio Installer for version 16.11.40...
-curl -L -o vs_installer.exe "https://download.visualstudio.microsoft.com/download/pr/2367f40f-504a-4264-96c2-1d48a981fdc9/d48ae8df989be8e28bca2324e1567ebd/vs_professional__541296787.1636728125.exe"
+curl -L -o vs_installer.exe "https://download.visualstudio.microsoft.com/download/pr/d4c27f3a-2cee-4907-99e3-aa5abafc38c1/7b625c4ec9b77a02da8f4125737c593ca47ac34cfa840cf8acfae0b37be6e572/vs_Professional.exe"
 
 echo Installing Visual Studio 2019 Professional 16.11.40 with selected workloads...
 
