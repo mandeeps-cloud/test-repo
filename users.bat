@@ -19,7 +19,8 @@ for /d %%G in (%oldUserProfilePath%\*) do (
     set "source=%%G"
     set "destination=!source:%oldUserProfilePath%=%backupUserProfilePath%!"
     if not exist "!destination!" (
-        xcopy /E /I /H /K /O /X /Y "!source!" "!destination!"
+        echo Backing up !source! to !destination!
+        xcopy /E /I /H /K /O /X /Y "!source!" "!destination!" >nul
         echo Backed up profile from !source! to !destination!
     ) else (
         echo Backup for !destination! already exists
@@ -39,7 +40,8 @@ for /d %%G in (%oldUserProfilePath%\*) do (
     set "source=%%G"
     set "destination=!source:%oldUserProfilePath%=%newUserProfilePath%!"
     if not exist "!destination!" (
-        move /Y "!source!" "!destination!"
+        echo Moving !source! to !destination!
+        xcopy /E /I /H /K /O /X /Y "!source!" "!destination!" >nul
         echo Moved profile from !source! to !destination!
     ) else (
         echo Profile directory !destination! already exists
