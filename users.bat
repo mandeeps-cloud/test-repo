@@ -20,7 +20,7 @@ for /d %%G in (%oldUserProfilePath%\*) do (
     set "destination=!source:%oldUserProfilePath%=%backupUserProfilePath%!"
     if not exist "!destination!" (
         echo Backing up !source! to !destination!
-        xcopy /E /I /H /K /O /X /Y "!source!" "!destination!" >nul
+        robocopy "!source!" "!destination!" /MIR /COPYALL /R:3 /W:5
         echo Backed up profile from !source! to !destination!
     ) else (
         echo Backup for !destination! already exists
@@ -41,7 +41,7 @@ for /d %%G in (%oldUserProfilePath%\*) do (
     set "destination=!source:%oldUserProfilePath%=%newUserProfilePath%!"
     if not exist "!destination!" (
         echo Moving !source! to !destination!
-        xcopy /E /I /H /K /O /X /Y "!source!" "!destination!" >nul
+        robocopy "!source!" "!destination!" /MIR /COPYALL /R:3 /W:5
         echo Moved profile from !source! to !destination!
     ) else (
         echo Profile directory !destination! already exists
@@ -53,7 +53,8 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" /v Profi
 echo Updated the registry for default profile location to %newUserProfilePath%
 
 :: Step 6: Create a symbolic link for backward compatibility with C:\Users
-if not exist "%oldUserProfilePath%" (
+if exist "%oldUserProfilePath%" (
+    rmdir "%oldUserProfilePath%" /S /Q
     mklink /J "%oldUserProfilePath%" "%newUserProfilePath%"
     echo Created symbolic link from %oldUserProfilePath% to %newUserProfilePath%
 ) else (
