@@ -20,13 +20,14 @@ if %ERRORLEVEL% neq 0 (
 :: Create the silent installation script
 echo Creating the silent installation script...
 (
-    echo function Controller() { 
-    echo ^    installer.autoAcceptLicense = true;
-    echo ^    installer.setInstallationDirectory("%INSTALL_DIR%");
-    echo ^    installer.addOperation("ComponentSelection", "%QT_COMPONENT%");
-    echo ^    installer.setRunMode(installer.RunModeSilent);
-    echo }
-) > "%SCRIPT_PATH%"
+    echo. > "%SCRIPT_PATH%"
+    echo function Controller^() {>> "%SCRIPT_PATH%"
+    echo ^    installer.autoAcceptLicense = true;>> "%SCRIPT_PATH%"
+    echo ^    installer.setInstallationDirectory^("%INSTALL_DIR%"^);>> "%SCRIPT_PATH%"
+    echo ^    installer.addOperation^("ComponentSelection", "%QT_COMPONENT%"^);>> "%SCRIPT_PATH%"
+    echo ^    installer.setRunMode^("RunModeSilent"^);>> "%SCRIPT_PATH%"
+    echo }>> "%SCRIPT_PATH%"
+)
 
 if %ERRORLEVEL% neq 0 (
     echo Failed to create the silent installation script. Exiting.
