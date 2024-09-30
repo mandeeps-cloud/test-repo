@@ -11,7 +11,7 @@ set "QT_COMPONENT=qt.qt6.672.win64_msvc2019_64"
 
 :: Download the Qt Online Installer
 echo Downloading Qt Online Installer...
-powershell -Command "Invoke-WebRequest -Uri %QT_INSTALLER_URL% -OutFile %QT_INSTALLER_NAME%"
+powershell -Command "Invoke-WebRequest -Uri '%QT_INSTALLER_URL%' -OutFile '%QT_INSTALLER_NAME%'"
 if %ERRORLEVEL% neq 0 (
     echo Failed to download the Qt Online Installer. Exiting.
     exit /b 1
@@ -21,10 +21,10 @@ if %ERRORLEVEL% neq 0 (
 echo Creating the silent installation script...
 (
     echo function Controller() { 
-    echo     installer.autoAcceptLicense = true^;
-    echo     installer.setInstallationDirectory("%INSTALL_DIR%")^;
-    echo     installer.addOperation("ComponentSelection", "%QT_COMPONENT%")^;
-    echo     installer.setRunMode(installer.RunModeSilent)^;
+    echo ^    installer.autoAcceptLicense = true;
+    echo ^    installer.setInstallationDirectory("%INSTALL_DIR%");
+    echo ^    installer.addOperation("ComponentSelection", "%QT_COMPONENT%");
+    echo ^    installer.setRunMode(installer.RunModeSilent);
     echo }
 ) > "%SCRIPT_PATH%"
 
@@ -35,7 +35,7 @@ if %ERRORLEVEL% neq 0 (
 
 :: Run the Qt installer silently
 echo Running the Qt Online Installer silently...
-start /wait %QT_INSTALLER_NAME% --silent --platform minimal --script "%SCRIPT_PATH%"
+start /wait "%QT_INSTALLER_NAME%" --silent --platform minimal --script "%SCRIPT_PATH%"
 
 :: Check if Qt was installed successfully
 if exist "%INSTALL_DIR%\%QT_VERSION%" (
