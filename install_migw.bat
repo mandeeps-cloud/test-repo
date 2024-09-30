@@ -14,24 +14,27 @@ if not exist %MINGW_DIR% mkdir %MINGW_DIR%
     set TARGET_DIR=%MINGW_DIR%\%VERSION%
 
     echo Downloading MinGW %VERSION% for %ARCH%...
-    curl -L -o %VERSION%.zip %URL%
-    if not exist %VERSION%.zip (
+    
+    :: Use double quotes around the URL to handle any special characters
+    curl -L -o "%VERSION%.zip" "%URL%"
+    
+    if not exist "%VERSION%.zip" (
         echo Error: Failed to download MinGW version %VERSION%.
         goto :eof
     )
 
     echo Extracting MinGW %VERSION%...
-    mkdir %TARGET_DIR%
+    mkdir "%TARGET_DIR%"
     
     :: Use PowerShell to extract the .zip file
     powershell -command "Expand-Archive -Path '%CD%\%VERSION%.zip' -DestinationPath '%TARGET_DIR%'"
 
-    if not exist %TARGET_DIR% (
+    if not exist "%TARGET_DIR%" (
         echo Error: Failed to extract MinGW version %VERSION%.
         goto :eof
     )
 
-    del /Q %VERSION%.zip
+    del /Q "%VERSION%.zip"
 
     echo Adding MinGW %VERSION% to PATH...
     setx PATH "%TARGET_DIR%\bin;%PATH%"
